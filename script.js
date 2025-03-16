@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         "Initializing modules...",
         "Fetching data...",
         "System check...",
-        "Welcome to Sakil Hasan Saikat's Portfolio."
+        "Welcome to MosquitoZ!"
     ];
     let terminalIndex = 0;
     
