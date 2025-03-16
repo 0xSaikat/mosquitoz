@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const gameOver = document.getElementById('gameOver');
     const gameResult = document.getElementById('gameResult');
     const restartButton = document.getElementById('restartButton');
+    const container = document.querySelector('.container');
+    container.style.display = 'none'; 
 
     let isActive = false;
     let audioContext = null;
@@ -46,15 +48,30 @@ document.addEventListener('DOMContentLoaded', function() {
         const splash = document.getElementById('splash');
 
         const animateTerminal = () => {
-            if (terminalIndex < terminalLines.length) {
-                terminalText.textContent = terminalLines[terminalIndex++];
-                setTimeout(animateTerminal, 1000);
-            } else {
-                splash.style.display = 'none';
-            }
-        };
-
-        animateTerminal();
+    if (terminalIndex < terminalLines.length) {
+        terminalText.textContent = terminalLines[terminalIndex++];
+        setTimeout(animateTerminal, 1000);
+    } else {
+       
+        splash.style.transition = 'opacity 0.8s ease-out';
+        splash.style.opacity = '0';
+        
+        
+        setTimeout(() => {
+            splash.style.display = 'none';
+            
+            
+            container.style.display = 'flex';
+            container.style.opacity = '0';
+            
+            
+            void container.offsetWidth;
+            
+            container.style.transition = 'opacity 0.8s ease-in';
+            container.style.opacity = '1';
+        }, 800);
+    }
+};
 
     repellentButton.addEventListener('click', function() {
         if (!gameInProgress) {
