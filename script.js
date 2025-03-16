@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     totalMosquitos.textContent = totalCount;
 
+       
     const terminalLines = [
         "Loading assets...",
         "Initializing modules...",
@@ -44,12 +45,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const terminalText = document.getElementById('terminalText');
     const splash = document.getElementById('splash');
-
+    
+    
+    console.log("Terminal text element:", terminalText);
+    console.log("Splash element:", splash);
+    
     const animateTerminal = () => {
+        console.log("Animating terminal, current index:", terminalIndex);
+        
         if (terminalIndex < terminalLines.length) {
             terminalText.textContent = terminalLines[terminalIndex++];
+            console.log("Updated terminal text to:", terminalText.textContent);
             setTimeout(animateTerminal, 1000);
         } else {
+            console.log("Animation complete, transitioning to main content");
             splash.style.transition = 'opacity 0.8s ease-out';
             splash.style.opacity = '0';
             
@@ -63,11 +72,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 container.style.transition = 'opacity 0.8s ease-in';
                 container.style.opacity = '1';
+                console.log("Main content should now be visible");
             }, 800);
         }
     };
     
     
+    console.log("Starting terminal animation");
     animateTerminal();
 
     repellentButton.addEventListener('click', function() {
