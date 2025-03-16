@@ -309,20 +309,20 @@ input[type="range"] {
 }
 
 .footer {
-    position: absolute;
-    bottom: 10px;
+    position: fixed;  
+    bottom: 20px;     
     left: 0;
     width: 100%;
     text-align: center;
     color: white;
-    font-size: 0.8rem;
+    font-size: 1rem;
     z-index: 5;
+    padding: 10px;
 }
 
 .footer img {
-    margin-top: 5px;
+    margin-left: 10px;
     height: 30px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    display: inline-block;  
+    vertical-align: middle;  
 }
