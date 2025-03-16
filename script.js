@@ -34,6 +34,18 @@ document.addEventListener('DOMContentLoaded', function() {
     totalMosquitos.textContent = totalCount;
 
        
+    const terminalText = document.getElementById('terminalText');
+    const splash = document.getElementById('splash');
+    
+    if (!terminalText || !splash) {
+        console.error("Splash screen elements not found:", {terminalText, splash});
+        
+        if (container) {
+            container.style.display = 'flex';
+        }
+        return;
+    }
+    
     const terminalLines = [
         "Loading assets...",
         "Initializing modules...",
@@ -42,13 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
         "Welcome to Sakil Hasan Saikat's Portfolio."
     ];
     let terminalIndex = 0;
-
-    const terminalText = document.getElementById('terminalText');
-    const splash = document.getElementById('splash');
     
-    
-    console.log("Terminal text element:", terminalText);
-    console.log("Splash element:", splash);
+    console.log("Starting terminal animation");
     
     const animateTerminal = () => {
         console.log("Animating terminal, current index:", terminalIndex);
@@ -68,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 container.style.display = 'flex';
                 container.style.opacity = '0';
                 
-                void container.offsetWidth;
+                void container.offsetWidth; 
                 
                 container.style.transition = 'opacity 0.8s ease-in';
                 container.style.opacity = '1';
@@ -77,8 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    
-    console.log("Starting terminal animation");
     animateTerminal();
 
     repellentButton.addEventListener('click', function() {
