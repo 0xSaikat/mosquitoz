@@ -388,22 +388,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    function gameLoop() {
-        if (gameInProgress) {
-            moveMosquitos();
-            if (isActive) {
-                checkForZaps();
-            }
-            
-            if (timeLeft > 60 && mosquitos.length < totalCount && Math.random() < 0.002) {
+ function gameLoop() {
+    if (gameInProgress) {
+        moveMosquitos();
+        if (isActive) {
+            checkForZaps();
+        }
+        
+        
+        if (mosquitos.length === 0) {
+            for (let i = 0; i < 3; i++) {  
                 createMosquito();
                 totalCount++;
-                totalMosquitos.textContent = totalCount;
             }
-            
-            animationFrame = requestAnimationFrame(gameLoop);
+            totalMosquitos.textContent = "∞";  
         }
+       
+        else if (timeLeft > 60 && Math.random() < 0.002) {
+            createMosquito();
+            totalCount++;
+        }
+        
+        animationFrame = requestAnimationFrame(gameLoop);
     }
+}
 
     function checkForZaps() {
         const buttonRect = repellentButton.getBoundingClientRect();
