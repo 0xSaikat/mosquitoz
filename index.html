@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Mosquitoz - Ultrasonic Mosquito Repellent</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Mosquitoz Logo" class="logo" id="logo">
+        
+        <div class="button-container">
+            <button class="circular-button" id="repellentButton">
+                <div class="pulse" id="pulse"></div>
+                ACTIVATE
+            </button>
+        </div>
+
+        <div class="status" id="status">Ready to zap mosquitos!</div>
+
+        <div class="stats" id="stats">
+            Mosquitos: <span id="mosquitoCount">0</span> / <span id="totalMosquitos">0</span><br>
+            Time: <span id="timer">0</span>s
+        </div>
+
+        <div id="mosquitoContainer"></div>
+
+        <div class="settings-panel" id="settingsPanel">
+            <h3>Settings</h3>
+            <div class="slider-container">
+                <label for="frequencySlider">Frequency: <span id="frequencyValue">18000</span> Hz</label>
+                <input type="range" id="frequencySlider" min="15000" max="20000" step="100" value="18000">
+            </div>
+            <div class="slider-container">
+                <label for="powerSlider">Power: <span id="powerValue">50</span>%</label>
+                <input type="range" id="powerSlider" min="10" max="100" value="50">
+            </div>
+        </div>
+
+        <div class="ai-assistant" id="aiAssistant">AI</div>
+        <div class="ai-chat" id="aiChat">
+            <div class="message">Hello! I'm your mosquito zapping assistant. Click the blue button to activate the ultrasonic repellent and eliminate mosquitos!</div>
+        </div>
+
+        <div class="game-over" id="gameOver">
+            <h2>Game Over!</h2>
+            <div id="gameResult"></div>
+            <button class="restart-button" id="restartButton">Play Again</button>
+        </div>
+        
+        <div class="warning-popup" id="warningPopup">
+            <div class="warning-content">
+                <h3>⚠️ Effectiveness Warning</h3>
+                <p><strong>This is experimental!</strong></p>
+                <ul>
+                    <li>Mosquitoes might not react to ultrasonic sounds (studies show mixed results).</li>
+                    <li>Combine with a <strong>fan</strong> or <strong>physical repellent</strong> for better results.</li>
+                </ul>
+                
+                <div class="time-selection">
+                    <label for="timeInput">Set time (1-30 minutes):</label>
+                    <input type="number" id="timeInput" min="1" max="30" value="1">
+                </div>
+                
+                <button id="acknowledgeButton">I understand</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
