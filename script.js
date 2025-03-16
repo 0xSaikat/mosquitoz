@@ -31,6 +31,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
     totalMosquitos.textContent = totalCount;
 
+    // Splash Screen Terminal Animation
+    const terminalLines = [
+            "Loading assets...",
+            "Initializing modules...",
+            "Fetching data...",
+            "System check...",
+        
+            "Welcome to Sakil Hasan Saikat's Portfolio."
+        ];
+        let terminalIndex = 0;
+
+        const terminalText = document.getElementById('terminalText');
+        const splash = document.getElementById('splash');
+
+        const animateTerminal = () => {
+            if (terminalIndex < terminalLines.length) {
+                terminalText.textContent = terminalLines[terminalIndex++];
+                setTimeout(animateTerminal, 1000);
+            } else {
+                splash.style.display = 'none';
+            }
+        };
+
+        animateTerminal();
+
     repellentButton.addEventListener('click', function() {
         if (!gameInProgress) {
             startGame();
